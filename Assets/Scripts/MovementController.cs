@@ -32,14 +32,6 @@ public class MovementController : MonoBehaviour
             Vector2.down, 0.05f, groundLayer);
         isGrounded = hit.collider != null;
 
-        if (isGrounded)
-        {
-            Debug.Log("Me grounded BOI!");
-        } else
-        {
-            Debug.Log("Me airborne BOI!");
-        }
-
         float horizontalInput = Input.GetAxis("Horizontal") * speed;
 
         playerRb.velocity = new Vector2(horizontalInput, playerRb.velocity.y);
