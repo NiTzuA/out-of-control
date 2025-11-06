@@ -42,11 +42,11 @@ public class MovementController : MonoBehaviour
         {
             horizontalInput = Mathf.Clamp(horizontalInput, 0f, int.MaxValue);
         } 
-        else if (!canRight)
+        
+        if (!canRight)
         {
             horizontalInput = Mathf.Clamp(horizontalInput, int.MinValue, 0);
-        } 
-
+        }
 
         playerRb.velocity = new Vector2(horizontalInput, playerRb.velocity.y);
 
@@ -71,6 +71,27 @@ public class MovementController : MonoBehaviour
                 break;
             case "right":
                 canRight = true;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void LockMovement(string direction)
+    {
+        switch (direction)
+        {
+            case "up":
+                canUp = false;
+                break;
+            case "down":
+                canDown = false;
+                break;
+            case "left":
+                canLeft = false;
+                break;
+            case "right":
+                canRight = false;
                 break;
             default:
                 break;
