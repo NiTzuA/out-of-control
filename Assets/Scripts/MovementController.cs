@@ -1,9 +1,12 @@
 using UnityEngine;
+using System.Linq;
 
 public class MovementController : MonoBehaviour
 {
     private Rigidbody2D playerRb;
     private BoxCollider2D playerCol;
+    private KeyCode[] jumpKeys = { KeyCode.UpArrow, KeyCode.W, KeyCode.Space };
+    private KeyCode[] crouchKeys = { KeyCode.DownArrow, KeyCode.S, KeyCode.LeftControl };
 
     [Header("Movement")]
     public float speed = 10f;
@@ -19,15 +22,12 @@ public class MovementController : MonoBehaviour
     private bool canDown = false;
 
 
+
+
     private void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerCol = GetComponent<BoxCollider2D>();
-    }
-
-    void Start()
-    {
-        
     }
 
     private void Update()
@@ -50,7 +50,7 @@ public class MovementController : MonoBehaviour
 
         playerRb.velocity = new Vector2(horizontalInput, playerRb.velocity.y);
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && canUp)
+        if (jumpKeys.Any(Input.GetKeyDown) && isGrounded && canUp)
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
         }
