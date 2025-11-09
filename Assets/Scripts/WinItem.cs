@@ -1,0 +1,16 @@
+
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class WinItem : MonoBehaviour
+{
+    public string nextLevel;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            SceneManager.LoadScene(nextLevel);
+        }
+    }
+}

@@ -36,8 +36,10 @@ public class MovementController : MonoBehaviour
     private void Update()
     {
         RaycastHit2D hit = Physics2D.BoxCast(playerCol.bounds.center, playerCol.bounds.size, 0f, 
-            Vector2.down, 0.05f, jumpableLayers);
+            Vector2.down, 0.01f, jumpableLayers);
         isGrounded = hit.collider != null;
+
+        Debug.Log(playerRb.velocity.y);
 
         float horizontalInput = Input.GetAxis("Horizontal") * speed;
 
@@ -53,7 +55,7 @@ public class MovementController : MonoBehaviour
 
         playerRb.velocity = new Vector2(horizontalInput, playerRb.velocity.y);
 
-        if (jumpKeys.Any(Input.GetKeyDown) && isGrounded && canUp)
+        if (jumpKeys.Any(Input.GetKeyDown) && isGrounded && canUp && playerRb.velocity.y <= 0)
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, jumpForce);
         }
