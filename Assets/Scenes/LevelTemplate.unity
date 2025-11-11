@@ -748,6 +748,10 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 5593978412127648758, guid: bd8a560970b709847897135f8c1ea518, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 257459201}
     - target: {fileID: 8259914107196384150, guid: bd8a560970b709847897135f8c1ea518, type: 3}
       propertyPath: m_Color.b
       value: 0.5294118
