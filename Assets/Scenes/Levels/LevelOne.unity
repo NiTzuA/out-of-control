@@ -3242,7 +3242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1553302517837535711, guid: 6d73c06d4b3e81a4fb5cc709b677acc9, type: 3}
       propertyPath: nextLevel
-      value: TutorialOne
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 5793647729156968707, guid: 6d73c06d4b3e81a4fb5cc709b677acc9, type: 3}
       propertyPath: m_LocalPosition.x
